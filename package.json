@@ -1,0 +1,19 @@
+{
+  "name": "mxweaver.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxweaver/mxweaver.github.io"
+  },
+  "scripts": {
+    "start": "http-server"
+  },
+  "author": "Maya Vera <maya@mayavera.me> (https://mayavera.me/)",
+  "license": "UNLICENSED",
+  "description": "Madison Weaver's personal site.",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

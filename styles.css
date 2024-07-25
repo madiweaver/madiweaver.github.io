@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Vollkorn';
+    src: url('Vollkorn-Regular.woff2') format('woff2'), url('Vollkorn-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: 'Vollkorn';
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+    background-color: rgb(224, 224, 205);
+    color: rgb(56, 56, 56);
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+
+}
+
+a {
+    color: inherit;
+}
+
+main {
+    margin: 1rem;
+}
+
+article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    position: absolute;
+    top: -9.5em;
+    max-width: 10em;
+    filter: drop-shadow(2px 2px 2px rgb(200, 200, 200));
+}
+
+section {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
