@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Tell the Time in PICO-8 | Madison Weaver</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/libs/highlight/styles/panda-syntax-dark.css">
+    <script src="/libs/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <script>hljs.highlightAll();</script>
+    <header>
+        <h1><a href="/">Madison Weaver</a> / <a href="/guides">Guides</a></h1>
+    </header>
+    <main>
+        <header>
+            <h2>How to Tell the Time in PICO-8</h2>
+            <h3>19, November 2022</h3>
+        </header>
+        <section>
+            <p>PICO-8 provides a way to get information from the system (computer) it’s running on: <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#STAT"><code>STAT()</code></a>. To get the current date and time in PICO-8, simply call <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#STAT"><code>STAT()</code></a> with the numbers <code>80</code>, <code>81</code>, <code>82</code>, <code>83</code>, <code>84</code>, and <code>85</code>.</p>
+            <pre><code class="language-lua">YEAR=STAT(80)
+MONTH=STAT(81)
+DAY=STAT(82)
+HOUR=STAT(83)
+MINUTE=STAT(84)
+SECOND=STAT(85)</code></pre>
+        </section>
+            <p>Here’s a quick way to see that it works:</p>
+            <pre><code class="language-lua">FUNCTION _UPDATE()
+  YEAR=STAT(80)
+  MONTH=STAT(81)
+  DAY=STAT(82)
+  HOUR=STAT(83)
+  MINUTE=STAT(84)
+  SECOND=STAT(85)
+END
+
+FUNCTION _DRAW()
+  D=YEAR..'-'..MONTH..'-'..DAY
+  T=HOUR..':'..MINUTE..':'..SECOND
+  PRINT(D..' '..T)
+END</code></pre>
+        </section>
+        <aside>
+        <h3>Further Reading</h3>
+        <ul>
+            <li><a href="/guides/pico-8/pico-8-basics">PICO-8 Basics</a></li>
+            <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#STAT">PICO-8 Manual § STAT()</a></li>
+        </ul>
+        </aside>
+    </main>
+</body>
+</html>

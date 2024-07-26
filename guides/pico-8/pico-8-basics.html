@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICO-8 Basics | Madison Weaver</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/libs/highlight/styles/panda-syntax-dark.css">
+    <script src="/libs/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <script>hljs.highlightAll();</script>
+    <header>
+        <h1><a href="/">Madison Weaver</a> / <a href="/guides">Guides</a></h1>
+    </header>
+    <main>
+        <header>
+            <h2>PICO-8 Basics</h2>
+            <h3>19, November 2022</h3>
+        </header>
+        <section>
+            <p>While your program runs, PICO-8 will special functions. Each are prefixed with an underscore (_).</p>
+            <pre><code class="language-lua">FUNCTION _UPDATE60()
+  - YOUR UPDATE LOGIC HERE
+END</code></pre>
+        </section>
+        <section>
+            <h3>_INIT()</h3>
+            <p>The PICO-8 engine will call _INIT() when the program starts. While you don’t need to define this function for your program to run, using this method to define your initial values keeps your program organized.</p>
+            <pre><code class="language-lua">-- RUNS ONCE WHEN THE PROGRAM STARTS
+FUNCTION _INIT()
+  -- INITIALIZE STATE
+  GAMEOVER=FALSE
+  RUNNING=TRUE
+  PLAYER=1
+END</code></pre>
+        </section>
+        <section>
+            <h3>_UPDATE()</h3>
+            <p>The PICO-8 engine will call _UPDATE() 30 times per second. In most programs, you should use this function to capture user input and update your program state.</p>
+            <pre><code class="language-lua">-- RUNS 30 TIMES PER SECOND
+FUNCTION _UPDATE()
+  -- CAPTURE INPUT
+  IF BTN(➡️) THEN
+    PLAYER_DIRECTION=➡️
+  END
+
+  -- UPDATE STATE
+  IF (PLAYER_DIRECTION==➡️) THEN
+    PLAYER_X+=1
+  END
+END</code></pre>
+        </section>
+        <section>
+            <h3>_UPDATE60()</h3>
+            <p>Alternatively, you can define a function called _UPDATE60(). This function will be called 60 times per second instead of 30. This cause your _DRAW() function to be called 60 times per second as well.</p>
+            <pre><code class="language-lua">-- RUNS 60 TIMES PER SECOND
+FUNCTION _UPDATE60()
+  -- CAPTURE INPUT
+  IF BTN(➡️) THEN
+    PLAYER_DIRECTION=➡️
+  END
+
+  -- UPDATE STATE
+  IF (PLAYER_DIRECTION==➡️) THEN
+    PLAYER_X+=1
+  END
+END</code></pre>
+        </section>
+        <section>
+            <h3>_DRAW()</h3>
+            <p>PICO-8 will call _DRAW() after every _UPDATE() (or _UPDATE60()) call. You should use this function to draw elements onto the screen (e.g. shapes, sprites, pixels).</p>
+            <blockquote>⚠️ PICO-8 will not automatically clear the screen before _DRAW() is called. In most cases, you should do this at the beginning of your function by calling CLS().</blockquote>
+            <p>Typically, you should clear the screen before drawing elements.</p>
+            <pre><code class="language-lua">-- RUNS AFTER EACH _UPDATE() CALL
+FUNCTION _UPDATE60()
+  -- CLEAR THE SCREEN
+  CLS()
+
+  -- DRAW ELEMENTS
+  SPR(1,0,0)
+END</code></pre>
+        </section>
+        <aside>
+        <h3>Further Reading</h3>
+        <ul>
+            <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#PICO_8_Program_Structure">PICO-8 Manual § Program Structure</a></li>
+        </ul>
+        </aside>
+    </main>
+</body>
+</html>

@@ -1,3 +1,12 @@
+:root {
+    --bg-primary: rgb(224, 224, 205);
+    --text-primary: rgb(56, 56, 56);
+    --bg-inverted: var(--text-primary);
+    --text-inverted: var(--bg-primary);
+    --shadow-primary: 1px 1px 1px rgb(220, 220, 220);
+    --shadow-inverted: 1px 1px 10px rgb(56, 56, 56);
+}
+
 @font-face {
     font-family: 'Vollkorn';
     src: url('Vollkorn-Regular.woff2') format('woff2'), url('Vollkorn-Regular.woff') format('woff');
@@ -16,21 +25,26 @@
 }
 
 body {
-    font-family: 'Vollkorn';
+    min-height: 100vh;
+    min-widht: 100vw;
     margin: 0;
+
+    font-family: 'Vollkorn';
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    text-shadow: var(--shadow-primary);
+
     opacity: 0;
     animation: fadeIn 0.4s ease forwards;
-    background-color: rgb(224, 224, 205);
-    color: rgb(56, 56, 56);
+}
 
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header {
+    max-width: 30em;
+    margin: 1rem auto;
+}
 
-    text-shadow: 1px 1px 2px rgb(200, 200, 200);
-
+h1 {
+    font-size: 1.5em;
 }
 
 a {
@@ -38,11 +52,23 @@ a {
 }
 
 main {
-    margin: 1rem;
+    max-width: 30em;
+    margin: 1rem auto;
 }
 
-article {
-    position: relative;
+pre {
+    text-shadow: none;
+    border-radius: 6px;
+    box-shadow: 0px 4px 12px #314733;
+}
+
+pre > code {
+    border-radius: 6px;
+}
+
+.welcome {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,14 +76,17 @@ article {
 }
 
 .hero {
-    position: absolute;
-    top: -10em;
-    max-width: 10em;
-    filter: drop-shadow(2px 2px 2px rgb(200, 200, 200));
+    width: 10em;
+    filter: drop-shadow(var(--shadow-primary));
+    display: block;
+    margin: 0 auto;
 }
 
-section {
-    max-width: 30em;
-    margin-left: auto;
-    margin-right: auto;
+.article-list > ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.article-list > ul > li {
+    margin-bottom: 1em;
 }

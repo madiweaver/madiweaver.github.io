@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run PICO-8 at 60fps | Madison Weaver</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/libs/highlight/styles/panda-syntax-dark.css">
+    <script src="/libs/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <script>hljs.highlightAll();</script>
+    <header>
+        <h1><a href="/">Madison Weaver</a> / <a href="/guides">Guides</a></h1>
+    </header>
+    <main>
+        <header>
+            <h2>How to Run PICO-8 at 60FPS</h2>
+            <h3>19, November 2022</h3>
+        </header>
+        <section>
+            <p>By default, PICO-8 will run your program at 30fps (30 frames per second). If you would like to run your program at 60fps, simply rename your <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#_UPDATE"><code>_UPDATE()</code></a> function to <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#_UPDATE60"><code>_UPDATE60()</code></a>.</p>
+            <pre><code class="language-lua">FUNCTION _UPDATE60()
+  -- YOUR UPDATE LOGIC HERE
+END</code></pre>
+        </section>
+        <aside>
+        <h3>Further Reading</h3>
+        <ul>
+            <li><a href="/guides/pico-8/pico-8-basics">PICO-8 Basics</a></li>
+            <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#_UPDATE">PICO-8 Manual § _UPDATE()</a></li>
+            <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#_UPDATE60">PICO-8 Manual § _UPDATE60()</a></li>
+        </ul>
+        </aside>
+    </main>
+</body>
+</html>

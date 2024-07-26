@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Tell if a Button is Pressed in PICO-8 | Madison Weaver</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/libs/highlight/styles/panda-syntax-dark.css">
+    <script src="/libs/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <script>hljs.highlightAll();</script>
+    <header>
+        <h1><a href="/">Madison Weaver</a> / <a href="/guides">Guides</a></h1>
+    </header>
+    <main>
+        <header>
+            <h2>How to Tell if a Button is Pressed in PICO-8</h2>
+            <h3>20, November 2022</h3>
+        </header>
+        <section>
+            <p>PICO-8 provides two simple way to tell if the user is pressing a button: BTN() and BTNP(). BTN() will return true if the button is currently being pressed, while BTNP() will return true if the button was pressed in the last frame. To tell which button the user is pressing, you pass either a number from 0 to 5 or the glyph that correspond to that button.</p>
+            <p>On a PICO-8 controller or keyboard input, there are 6 buttons: left, right, up, down, O, and X (O and X are analogous to A and B on other consoles).</p>
+            <p>To write glyphs into your code, hold <kbd>Shift</kbd> and press one of the following keys:</p>
+            <ul>
+                <li>Left: <kbd>L</kbd></li>
+                <li>Right: <kbd>R</kdb></li>
+                <li>Down: <kbd>D</kdb></li>
+                <li>Up: <kbd>U</kbd></li>
+                <li>O: <kbd>O</kbd></li>
+                <li>X: <kbd>X</kbd></li>
+            </ul>
+            <pre><code class="language-lua">BTN(0) -- is left pressed
+BTN(1) -- is right pressed
+BTN(2) -- is up pressed
+BTN(3) -- is down pressed
+BTN(4) -- is O pressed
+BTN(5) -- is X pressed
+
+BTN(⬅️) -- is left pressed
+BTN(➡️) -- is right pressed
+BTN(⬆️) -- is up pressed
+BTN(⬇️) -- is down pressed
+BTN(🅾️) -- is O pressed
+BTN(❎) -- is X pressed
+
+BTNP(0) -- was left pressed
+BTNP(1) -- was right pressed
+BTNP(2) -- was up pressed
+BTNP(3) -- was down pressed
+BTNP(4) -- was O pressed
+BTNP(5) -- was X pressed
+
+BTNP(⬅️) -- was left pressed
+BTNP(➡️) -- was right pressed
+BTNP(⬆️) -- was up pressed
+BTNP(⬇️) -- was down pressed
+BTNP(🅾️) -- was O pressed
+BTNP(❎) -- was X pressed</code></pre>
+        </section>
+        <section>
+            <p>Here’s an example of how you might use these functions in your game:</p>
+            <pre><code class="language-lua">RED=8
+BLUE=12
+
+FUNCTION _INIT()
+  PLAYER_X=64
+  PLAYER_COLOR=RED
+END
+
+FUNCTION _UPDATE()
+  IF BTN(➡️) THEN
+    PLAYER_X+=1
+  ELSEIF BTN(⬅️) THEN
+    PLAYER_X-=1
+  END
+
+  IF BTNP(🅾️) THEN
+    IF PLAYER_COLOR==RED THEN
+      PLAYER_COLOR=BLUE
+    ELSE
+      PLAYER_COLOR=RED
+    END
+  END
+END
+
+FUNCTION _DRAW()
+  CLS()
+  CIRCFILL(PLAYER_X,64,4,PLAYER_COLOR)
+END</code></pre>
+        </section>
+        <aside>
+        <h3>Further Reading</h3>
+        <ul>
+            <li><a href="/guides/pico-8/pico-8-basics">PICO-8 Basics</a></li>
+            <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#Input">PICO-8 Manual § Input</a></li>
+            <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#COLOR">PICO-8 Manual § COLOR()</a></li>
+        </ul>
+        </aside>
+    </main>
+</body>
+</html>

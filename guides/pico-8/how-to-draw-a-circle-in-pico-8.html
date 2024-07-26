@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to draw a rectangle in PICO-8 | Madison Weaver</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/libs/highlight/styles/panda-syntax-dark.css">
+    <script src="/libs/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <script>hljs.highlightAll();</script>
+    <header>
+        <h1><a href="/">Madison Weaver</a> / <a href="/guides">Guides</a></h1>
+    </header>
+    <main>
+        <header>
+            <h2>How to Draw a Circle in PICO-8</h2>
+            <h3>22 November, 2022</h3>
+        </header>
+        <section>
+            <p>PICO-8 provides two simple ways to draw a circle: <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#CIRC"><code>CIRC()</code></a> and <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#CIRCFILL"><code>CIRCFILL()</code></a>. <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#CIRC"><code>CIRC()</code></a> will draw an empty circle with a 1 pixel-wide border and <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#CIRCFILL"><code>CIRCFILL()</code></a> will draw a filled circle. Each function takes an x coordinate, a y coordinate, a radius, and a color.</p>
+            <pre><code class="language-lua">RED = 8
+
+X=64
+Y=32
+R=4
+C=RED
+
+-- DRAWS A RED CIRCLE IN THE CENTER OF THE SCREEN
+CIRC(X,Y,R,C)
+
+-- DRAWS A FILLED, RED CIRCLE IN THE CENTER OF THE SCREEN
+CIRCFILL(X,Y,R,C)</code></pre>
+        </section>
+        <section>
+            <p>If you’re drawing a lot of shapes with the same color, you may omit the color parameter by setting the current color with the <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#COLOR"><code>COLOR()</code></a> function.</p>
+            <pre><code class="language-lua">RED=8
+
+FUNCTION _DRAW()
+    X=64
+    Y=64
+    R=4
+    COLOR(RED)
+    CIRCFILL(X+4*0,Y,R)
+    CIRCFILL(X+4*1,Y,R)
+    CIRCFILL(X+4*2,Y,R)
+    CIRCFILL(X+4*3,Y,R)
+    CIRCFILL(X+4*4,Y,R)
+    CIRCFILL(X+4*5,Y,R)
+    CIRCFILL(X+4*6,Y,R)
+    CIRCFILL(X+4*7,Y,R)
+    CIRCFILL(X+4*8,Y,R)
+    CIRCFILL(X+4*9,Y,R)
+END</code></pre>
+        </section>
+        <aside>
+            <h3>Further Reading</h3>
+            <ul>
+                <li><a href="/guides/pico-8/pico-8-basics">PICO-8 Basics</a></li>
+                <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#CIRC">PICO-8 Manual § CIRC()</a></li>
+                <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#CIRCFILL">PICO-8 Manual § CIRCFILL()</a></li>
+                <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#COLOR">PICO-8 Manual § COLOR()</a></li>
+            </ul>
+        </aside>
+    </main>
+</body>
+</html>

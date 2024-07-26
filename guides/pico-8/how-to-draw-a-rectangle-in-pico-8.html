@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to draw a rectangle in PICO-8 | Madison Weaver</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/libs/highlight/styles/panda-syntax-dark.css">
+    <script src="/libs/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <script>hljs.highlightAll();</script>
+    <header>
+        <h1><a href="/">Madison Weaver</a> / <a href="/guides">Guides</a></h1>
+    </header>
+    <main>
+        <header>
+            <h2>How to draw a rectangle in PICO-8</h2>
+            <h3>22 November, 2022</h3>
+        </header>
+        <section>
+            <p>PICO-8 provides two simple ways to draw rectangles: <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#RECT"><code>RECT()</code></a> and <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#RECTFILL"><code>RECTFILL()</code></a>. <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#RECT"><code>RECT()</code></a> draws an empty rectangle with a 1 pixel wide border, whereas <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#RECTFILL"><code>RECTFILL()</code></a> draws a filled rectangle. Each function accepts a X and Y position for the top-left and bottom-right corners and a color.</p>
+            <pre><code class="language-lua">RED=8
+
+X1=60
+Y1=60
+X2=68
+Y2=68
+
+-- DRAWS AN EMPTY RED RECTANGLE IN THE CENTER OF THE SCREEN
+RECT(X1,Y1,X2,Y2,RED)
+
+-- DRAWS A FILLED RED RECTANGLE IN THE CENTER OF THE SCREEN
+RECTFILL(X1,Y1,X2,Y2,RED)</code></pre>
+            <p>If you’re drawing a lot of shapes with the same color, you may omit the color parameter by setting the current color with the <a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#COLOR"><code>COLOR()</code></a> function.</p>
+            <pre><code class="language-lua">RED=8
+
+FUNCTION _DRAW()
+    COLOR(RED)
+    RECTFILL( 0, 0,10,10)
+    RECTFILL(20,20,30,30)
+    RECTFILL(40,40,50,50)
+END</code></pre>
+        </section>
+        <aside>
+            <h3>Further Reading</h3>
+            <ul>
+                <li><a href="/guides/pico-8/pico-8-basics">PICO-8 Basics</a></li>
+                <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#RECT">PICO-8 Manual § RECT()</a></li>
+                <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#RECTFILL">PICO-8 Manual § RECTFILL()</a></li>
+                <li><a target="_blank" href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#COLOR">PICO-8 Manual § COLOR()</a></li>
+            </ul>
+        </aside>
+    </main>
+</body>
+</html>
