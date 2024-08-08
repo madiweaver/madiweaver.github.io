@@ -1,7 +1,10 @@
 :root {
-    --bg-primary: rgb(224, 224, 205);
-    --text-primary: rgb(56, 56, 56);
-    --text-shadow-primary: 1px 1px 1px rgb(220, 220, 220);
+    --light: rgb(230, 213, 192);
+    --dark: rgb(46, 44, 42);
+
+    --bg-primary: var(--light);
+    --text-primary: var(--dark);
+    --text-shadow-primary: 1px 1px 1px rgba(46, 44, 42, 0.2);
     --shadow-primary: 0px 4px 12px #4b4d4b;
 }
 
@@ -24,7 +27,7 @@
 
 body {
     min-height: 100vh;
-    min-widht: 100vw;
+    min-width: 100vw;
     margin: 0;
 
     font-family: 'Vollkorn';
