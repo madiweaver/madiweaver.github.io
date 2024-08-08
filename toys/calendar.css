@@ -1,0 +1,71 @@
+:root {
+    --light: rgb(230, 213, 192);
+    --less-dark: rgb(122, 116, 111);
+    --dark: rgb(46, 44, 42);
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light);
+}
+
+#calendar {
+    aspect-ratio: 1;
+    border-radius: 36px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#heading {
+    padding: 1.5rem;
+    background-color: var(--dark);
+    color: var(--light);
+    border-radius: 36px 36px 0 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#year {
+    margin-left: 0.5rem;
+}
+
+#body {
+    border-style: solid;
+    border-color: var(--dark);
+    border-width: 0 4px 4px 4px;
+    border-radius: 0 0 36px 36px;
+    padding: 1rem;
+}
+
+.week {
+    display: flex;
+    flex-direction: row;
+}
+
+.day {
+    aspect-ratio: 1;
+    width: 4rem;
+    flex-grow: 1;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.day.today {
+    background-color: var(--dark);
+    color: var(--light);
+    border-radius: 100%;
+}
+
+.day.other {
+    color: var(--less-dark);
+}
