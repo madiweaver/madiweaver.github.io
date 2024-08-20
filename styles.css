@@ -62,7 +62,7 @@ main {
 pre {
     text-shadow: none;
     border-radius: 6px;
-    box-shadow: var(--shadow-primary);
+    /* box-shadow: var(--shadow-primary); */
 }
 
 pre > code {
